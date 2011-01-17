@@ -19,13 +19,13 @@ public class RutaExpendio {
     private String sMessages;
 
     private String Cobrador, Zona, Fecha;
-    public Vector Puntos = null;
+    public Vector VectorPuntos = null;
     private String sJSON;
 
 
     public RutaExpendio(String json_data) {
         this.sJSON = json_data;
-        Puntos = new Vector();
+        VectorPuntos = new Vector();
         ProcessJSON(this.sJSON);
     }
 
@@ -43,7 +43,7 @@ public class RutaExpendio {
                     for (int i = 0; i < japuntos.length(); i++) {
                         JSONObject jopunto = japuntos.getJSONObject(i);
                         PuntoExpendio puntoexpendio = new PuntoExpendio(Integer.parseInt(jopunto.getString("ID")), jopunto.getString("NOMBRE"), jopunto.getString("FECHA"), jopunto.getString("ENTR DEV"), Integer.parseInt(jopunto.getString("VALOR UNITARIO")), Integer.parseInt(jopunto.getString("VALOR TOTAL")), 1);
-                        Puntos.addElement(puntoexpendio);
+                        VectorPuntos.addElement(puntoexpendio);
                     }
                 }
             }

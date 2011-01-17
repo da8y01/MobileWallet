@@ -23,7 +23,7 @@ public class FlowMIDlet extends MIDlet implements CommandListener {
     private Enumeration enumeration;
     private ConnectionHandler connectionhandler;
     private RutaExpendio RutaExpendio;
-    private PuntoExpendio a_PuntoExpendio;
+    private PuntoExpendio a_PuntoExpendio, CurrPuntoExpendio;
 
     //<editor-fold defaultstate="collapsed" desc=" Generated Fields ">//GEN-BEGIN:|fields|0|
     private List ListInicio;
@@ -35,14 +35,15 @@ public class FlowMIDlet extends MIDlet implements CommandListener {
     private List ListFS;
     private List ListContentRoot;
     private Form FormPuntoExpendio;
-    private StringItem stringItemPEId;
-    private StringItem stringItemPENombre;
-    private StringItem stringItemPEFecha;
     private TextField textFieldPEEntrDev;
     private StringItem stringItemPEValorUnitario;
+    private StringItem stringItemPEFecha;
+    private StringItem stringItemPEId;
+    private StringItem stringItemPENombre;
     private TextField textFieldPEValorTotal;
     private Command exitCommand;
     private Command backCommand;
+    private Command sendCommand;
     //</editor-fold>//GEN-END:|fields|0|
 
     /**
@@ -130,106 +131,110 @@ public class FlowMIDlet extends MIDlet implements CommandListener {
                 // write pre-action user code here
                 exitMIDlet();//GEN-LINE:|7-commandAction|4|94-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|5|60-preAction
+            } else if (command == sendCommand) {//GEN-LINE:|7-commandAction|5|108-preAction
+                // write pre-action user code here
+//GEN-LINE:|7-commandAction|6|108-postAction
+                // write post-action user code here
+            }//GEN-BEGIN:|7-commandAction|7|60-preAction
         } else if (displayable == ListConsignataria) {
-            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|5|60-preAction
+            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|7|60-preAction
                 // write pre-action user code here
-                ListConsignatariaAction();//GEN-LINE:|7-commandAction|6|60-postAction
+                ListConsignatariaAction();//GEN-LINE:|7-commandAction|8|60-postAction
                 // write post-action user code here
-            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|7|63-preAction
+            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|9|63-preAction
                 // write pre-action user code here
-                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|8|63-postAction
+                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|10|63-postAction
                 // write post-action user code here
-            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|9|62-preAction
+            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|11|62-preAction
                 // write pre-action user code here
-                exitMIDlet();//GEN-LINE:|7-commandAction|10|62-postAction
+                exitMIDlet();//GEN-LINE:|7-commandAction|12|62-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|11|86-preAction
+            }//GEN-BEGIN:|7-commandAction|13|86-preAction
         } else if (displayable == ListContentRoot) {
-            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|11|86-preAction
+            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|13|86-preAction
                 // write pre-action user code here
-                ListContentRootAction();//GEN-LINE:|7-commandAction|12|86-postAction
+                ListContentRootAction();//GEN-LINE:|7-commandAction|14|86-postAction
                 // write post-action user code here
-            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|13|89-preAction
+            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|15|89-preAction
                 // write pre-action user code here
-                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|14|89-postAction
+                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|16|89-postAction
                 // write post-action user code here
-            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|15|88-preAction
+            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|17|88-preAction
                 // write pre-action user code here
-                exitMIDlet();//GEN-LINE:|7-commandAction|16|88-postAction
+                exitMIDlet();//GEN-LINE:|7-commandAction|18|88-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|17|55-preAction
+            }//GEN-BEGIN:|7-commandAction|19|55-preAction
         } else if (displayable == ListExpendio) {
-            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|17|55-preAction
+            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|19|55-preAction
                 // write pre-action user code here
-                ListExpendioAction();//GEN-LINE:|7-commandAction|18|55-postAction
+                ListExpendioAction();//GEN-LINE:|7-commandAction|20|55-postAction
                 // write post-action user code here
-            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|19|58-preAction
+            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|21|58-preAction
                 // write pre-action user code here
-                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|20|58-postAction
+                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|22|58-postAction
                 // write post-action user code here
-            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|21|57-preAction
+            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|23|57-preAction
                 // write pre-action user code here
-                exitMIDlet();//GEN-LINE:|7-commandAction|22|57-postAction
+                exitMIDlet();//GEN-LINE:|7-commandAction|24|57-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|23|79-preAction
+            }//GEN-BEGIN:|7-commandAction|25|79-preAction
         } else if (displayable == ListFS) {
-            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|23|79-preAction
+            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|25|79-preAction
                 // write pre-action user code here
-                ListFSAction();//GEN-LINE:|7-commandAction|24|79-postAction
+                ListFSAction();//GEN-LINE:|7-commandAction|26|79-postAction
                 // write post-action user code here
-            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|25|82-preAction
+            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|27|82-preAction
                 // write pre-action user code here
-                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|26|82-postAction
+                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|28|82-postAction
                 // write post-action user code here
-            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|27|81-preAction
+            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|29|81-preAction
                 // write pre-action user code here
-                exitMIDlet();//GEN-LINE:|7-commandAction|28|81-postAction
+                exitMIDlet();//GEN-LINE:|7-commandAction|30|81-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|29|16-preAction
+            }//GEN-BEGIN:|7-commandAction|31|16-preAction
         } else if (displayable == ListInicio) {
-            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|29|16-preAction
+            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|31|16-preAction
                 // write pre-action user code here
-                ListInicioAction();//GEN-LINE:|7-commandAction|30|16-postAction
+                ListInicioAction();//GEN-LINE:|7-commandAction|32|16-postAction
                 // write post-action user code here
-            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|31|19-preAction
+            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|33|19-preAction
                 // write pre-action user code here
-                exitMIDlet();//GEN-LINE:|7-commandAction|32|19-postAction
+                exitMIDlet();//GEN-LINE:|7-commandAction|34|19-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|33|65-preAction
+            }//GEN-BEGIN:|7-commandAction|35|65-preAction
         } else if (displayable == ListVerificar) {
-            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|33|65-preAction
+            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|35|65-preAction
                 // write pre-action user code here
-                ListVerificarAction();//GEN-LINE:|7-commandAction|34|65-postAction
+                ListVerificarAction();//GEN-LINE:|7-commandAction|36|65-postAction
                 // write post-action user code here
-            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|35|68-preAction
+            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|37|68-preAction
                 // write pre-action user code here
-                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|36|68-postAction
+                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|38|68-postAction
                 // write post-action user code here
-            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|37|67-preAction
+            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|39|67-preAction
                 // write pre-action user code here
-                exitMIDlet();//GEN-LINE:|7-commandAction|38|67-postAction
+                exitMIDlet();//GEN-LINE:|7-commandAction|40|67-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|39|27-preAction
+            }//GEN-BEGIN:|7-commandAction|41|27-preAction
         } else if (displayable == LoginScreen) {
-            if (command == LoginScreen.LOGIN_COMMAND) {//GEN-END:|7-commandAction|39|27-preAction
+            if (command == LoginScreen.LOGIN_COMMAND) {//GEN-END:|7-commandAction|41|27-preAction
                 // write pre-action user code here
                 ValidateLoginExpendio(LoginScreen.getUsername(), LoginScreen.getPassword());
-//GEN-LINE:|7-commandAction|40|27-postAction
+//GEN-LINE:|7-commandAction|42|27-postAction
                 // write post-action user code here
-            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|41|30-preAction
+            } else if (command == backCommand) {//GEN-LINE:|7-commandAction|43|30-preAction
                 // write pre-action user code here
-                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|42|30-postAction
+                switchDisplayable(null, getListInicio());//GEN-LINE:|7-commandAction|44|30-postAction
                 // write post-action user code here
-            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|43|28-preAction
+            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|45|28-preAction
                 // write pre-action user code here
-                exitMIDlet();//GEN-LINE:|7-commandAction|44|28-postAction
+                exitMIDlet();//GEN-LINE:|7-commandAction|46|28-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|45|7-postCommandAction
-        }//GEN-END:|7-commandAction|45|7-postCommandAction
+            }//GEN-BEGIN:|7-commandAction|47|7-postCommandAction
+        }//GEN-END:|7-commandAction|47|7-postCommandAction
         // write post-action user code here
-    }//GEN-BEGIN:|7-commandAction|46|27-postAction
-    //</editor-fold>//GEN-END:|7-commandAction|46|27-postAction
+    }//GEN-BEGIN:|7-commandAction|48|
+    //</editor-fold>//GEN-END:|7-commandAction|48|
 
 
     //<editor-fold defaultstate="collapsed" desc=" Generated Getter: ListInicio ">//GEN-BEGIN:|14-getter|0|14-preInit
@@ -371,10 +376,10 @@ public class FlowMIDlet extends MIDlet implements CommandListener {
             ListExpendio.addCommand(getBackCommand());
             ListExpendio.setCommandListener(this);//GEN-END:|54-getter|1|54-postInit
             // write post-init user code here
-            enumeration = RutaExpendio.Puntos.elements();
+            enumeration = RutaExpendio.VectorPuntos.elements();
             while (enumeration.hasMoreElements()) {
                 a_PuntoExpendio = (PuntoExpendio) enumeration.nextElement();
-                String sItem = a_PuntoExpendio.GetId()+": "+a_PuntoExpendio.GetNombre();
+                String sItem = "[!] "+a_PuntoExpendio.GetId()+": "+a_PuntoExpendio.GetNombre();
                 ListExpendio.append(sItem, null);
             }
         }//GEN-BEGIN:|54-getter|2|
@@ -390,6 +395,32 @@ public class FlowMIDlet extends MIDlet implements CommandListener {
         // enter pre-action user code here
         String __selectedString = getListExpendio().getString(getListExpendio().getSelectedIndex());//GEN-LINE:|54-action|1|54-postAction
         // enter post-action user code here
+        String selectedId = "";
+        int i = 0;
+
+        if (__selectedString.startsWith("[!]")) {
+            i = __selectedString.indexOf(" ");
+            //selectedId = __selectedString.substring(++i, __selectedString.length());
+            selectedId = __selectedString.substring(++i, __selectedString.indexOf(":"));
+            System.out.println("[+] 'selectedId': '"+selectedId+"'");
+
+            enumeration = RutaExpendio.VectorPuntos.elements();
+            while (enumeration.hasMoreElements()) {
+                PuntoExpendio curr_PuntoExpendio = (PuntoExpendio) enumeration.nextElement();
+                if (Integer.toString(curr_PuntoExpendio.GetId()).equalsIgnoreCase(selectedId)) {
+                    CurrPuntoExpendio = curr_PuntoExpendio;
+                    break;
+                }
+            }
+
+            switchDisplayable(null, getFormPuntoExpendio());
+        }
+        else {
+            getAlert().setTitle("INFO");
+            getAlert().setType(AlertType.INFO);
+            getAlert().setString("El punto ya ha sido diligenciado");
+            switchDisplayable(null, getAlert());
+        }
     }//GEN-BEGIN:|54-action|2|
     //</editor-fold>//GEN-END:|54-action|2|
 
@@ -547,8 +578,13 @@ public class FlowMIDlet extends MIDlet implements CommandListener {
             FormPuntoExpendio = new Form("PUNTO EXPENDIO", new Item[] { getStringItemPEId(), getStringItemPENombre(), getStringItemPEFecha(), getTextFieldPEEntrDev(), getStringItemPEValorUnitario(), getTextFieldPEValorTotal() });//GEN-BEGIN:|93-getter|1|93-postInit
             FormPuntoExpendio.addCommand(getExitCommand());
             FormPuntoExpendio.addCommand(getBackCommand());
+            FormPuntoExpendio.addCommand(getSendCommand());
             FormPuntoExpendio.setCommandListener(this);//GEN-END:|93-getter|1|93-postInit
             // write post-init user code here
+            getStringItemPEId().setText(Integer.toString(CurrPuntoExpendio.GetId()));
+            getStringItemPENombre().setText(CurrPuntoExpendio.GetNombre());
+            getStringItemPEFecha().setText(CurrPuntoExpendio.GetFecha());
+            getStringItemPEValorUnitario().setText(Integer.toString(CurrPuntoExpendio.GetValorUnitario()));
         }//GEN-BEGIN:|93-getter|2|
         return FormPuntoExpendio;
     }
@@ -607,7 +643,7 @@ public class FlowMIDlet extends MIDlet implements CommandListener {
     public TextField getTextFieldPEEntrDev() {
         if (textFieldPEEntrDev == null) {//GEN-END:|102-getter|0|102-preInit
             // write pre-init user code here
-            textFieldPEEntrDev = new TextField("Entr. Dev.:", null, 32, TextField.ANY);//GEN-LINE:|102-getter|1|102-postInit
+            textFieldPEEntrDev = new TextField("Entr. Dev.:", null, 4, TextField.NUMERIC);//GEN-LINE:|102-getter|1|102-postInit
             // write post-init user code here
         }//GEN-BEGIN:|102-getter|2|
         return textFieldPEEntrDev;
@@ -637,12 +673,27 @@ public class FlowMIDlet extends MIDlet implements CommandListener {
     public TextField getTextFieldPEValorTotal() {
         if (textFieldPEValorTotal == null) {//GEN-END:|104-getter|0|104-preInit
             // write pre-init user code here
-            textFieldPEValorTotal = new TextField("Valor Total:", null, 32, TextField.ANY);//GEN-LINE:|104-getter|1|104-postInit
+            textFieldPEValorTotal = new TextField("Valor Total:", null, 16, TextField.NUMERIC);//GEN-LINE:|104-getter|1|104-postInit
             // write post-init user code here
         }//GEN-BEGIN:|104-getter|2|
         return textFieldPEValorTotal;
     }
     //</editor-fold>//GEN-END:|104-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: sendCommand ">//GEN-BEGIN:|107-getter|0|107-preInit
+    /**
+     * Returns an initiliazed instance of sendCommand component.
+     * @return the initialized component instance
+     */
+    public Command getSendCommand() {
+        if (sendCommand == null) {//GEN-END:|107-getter|0|107-preInit
+            // write pre-init user code here
+            sendCommand = new Command("Enviar", Command.SCREEN, 0);//GEN-LINE:|107-getter|1|107-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|107-getter|2|
+        return sendCommand;
+    }
+    //</editor-fold>//GEN-END:|107-getter|2|
 
     /**
      * Returns a display instance.

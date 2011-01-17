@@ -1,5 +1,5 @@
-MIDlet-1: FlowMIDlet, ,com.mobilewallet.FlowMIDlet
-MIDlet-Jar-Size: 78436
+MIDlet-1: StartMidlet,,com.mobilewallet.StartMidlet
+MIDlet-Jar-Size: 87980
 MIDlet-Jar-URL: PDAMobileWallet_00.jar
 MIDlet-Name: PDAMobileWallet_00
 MIDlet-Vendor: Vendor

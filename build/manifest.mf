@@ -1,4 +1,4 @@
-MIDlet-1: FlowMIDlet, ,com.mobilewallet.FlowMIDlet
+MIDlet-1: StartMidlet,,com.mobilewallet.StartMidlet
 MIDlet-Vendor: Vendor
 MIDlet-Name: PDAMobileWallet_00
 MIDlet-Version: 1.0

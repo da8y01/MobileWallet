@@ -19,15 +19,17 @@ public class PuntoExpendio {
     private String EntrDev;
     private int ValorUnitario;
     private int ValorTotal;
+    private int state = 1;  //1: Pendiente, 2: Diligenciado
 
 
-    public PuntoExpendio(String id, String nombre, String fecha, String entrdev, String valorunitario, String valortotal) {
+    public PuntoExpendio(int id, String nombre, String fecha, String entrdev, int valorunitario, int valortotal, int state) {
         SetId(id);
         SetNombre(nombre);
         SetFecha(fecha);
         SetEntrDev(entrdev);
         SetValorUnitario(valorunitario);
         SetValorTotal(valortotal);
+        SetState(state);
     }
 
 
@@ -35,8 +37,8 @@ public class PuntoExpendio {
         return this.Id;
     }
 
-    public void SetId(String id) {
-        this.Id = Integer.parseInt(id);
+    public void SetId(int id) {
+        this.Id = id;
     }
 
 
@@ -71,8 +73,8 @@ public class PuntoExpendio {
         return this.ValorUnitario;
     }
 
-    public void SetValorUnitario(String valor_unitario) {
-        this.ValorUnitario = Integer.parseInt(valor_unitario);
+    public void SetValorUnitario(int valor_unitario) {
+        this.ValorUnitario = valor_unitario;
     }
 
 
@@ -80,8 +82,17 @@ public class PuntoExpendio {
         return this.ValorTotal;
     }
 
-    public void SetValorTotal(String valor_total) {
-        this.ValorTotal = Integer.parseInt(valor_total);
+    public void SetValorTotal(int valor_total) {
+        this.ValorTotal = valor_total;
+    }
+
+
+    public int GetState() {
+        return this.state;
+    }
+
+    public void SetState(int stat) {
+        this.state = stat;
     }
 
 }
