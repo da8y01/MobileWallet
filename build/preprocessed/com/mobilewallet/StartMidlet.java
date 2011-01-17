@@ -805,34 +805,41 @@ public class StartMidlet extends MIDlet implements CommandListener {
         CurrPuntoExpendio.SetEntrDev(textFieldPEEntrDev.getString());
         CurrPuntoExpendio.SetValorTotal(Integer.parseInt(textFieldPEValorTotal.getString()));
 
-        String sOldOutFile, sUpdatedJSON;
-        boolean bWrote;
+        (new Thread() {
 
-        try {
-            sOldOutFile = connectionhandler.ReadOutputFile();
-            sUpdatedJSON = connectionhandler.AddJSONInfo(sOldOutFile, CurrPuntoExpendio);
-            bWrote = connectionhandler.WriteLocalFile(sUpdatedJSON);
-        } catch (IOException ioex) {
-            bWrote = false;
-            SetMessages(ioex.toString());
-            ioex.printStackTrace();
-        } catch (Exception ex) {
-            bWrote = false;
-            SetMessages(ex.toString());
-            ex.printStackTrace();
-        }
+            public void run() {
+                String sOldOutFile, sUpdatedJSON;
+                boolean bWrote;
 
-        if (bWrote) {
-            System.out.println();
-            getAlert().setTitle("CORRECTO");
-            getAlert().setString("Información de punto de expendio guardada.");
-            getAlert().setType(AlertType.CONFIRMATION);
-        } else {
-            System.out.println();
-            getAlert().setTitle("ERROR");
-            getAlert().setString("Error al guardar información de punto de expendio.");
-            getAlert().setType(AlertType.ERROR);
-        }
+                try {
+                    sOldOutFile = connectionhandler.ReadOutputFile();
+                    sUpdatedJSON = connectionhandler.AddJSONInfo(sOldOutFile, CurrPuntoExpendio);
+                    bWrote = connectionhandler.WriteLocalFile(sUpdatedJSON);
+                } catch (IOException ioex) {
+                    bWrote = false;
+                    SetMessages(ioex.toString());
+                    ioex.printStackTrace();
+                } catch (Exception ex) {
+                    bWrote = false;
+                    SetMessages(ex.toString());
+                    ex.printStackTrace();
+                }
+
+                if (bWrote) {
+                    System.out.println();
+                    getAlert().setTitle("CORRECTO");
+                    getAlert().setString("Información de punto de expendio guardada.");
+                    getAlert().setType(AlertType.CONFIRMATION);
+                    switchDisplayable(null, getAlert());
+                } else {
+                    System.out.println();
+                    getAlert().setTitle("ERROR");
+                    getAlert().setString("Error al guardar información de punto de expendio.");
+                    getAlert().setType(AlertType.ERROR);
+                    switchDisplayable(null, getAlert());
+                }
+            }
+        }).start();
     }
 
 }
