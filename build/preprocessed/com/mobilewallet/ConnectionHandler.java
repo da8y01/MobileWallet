@@ -26,8 +26,8 @@ import org.json.me.JSONObject;
 public class ConnectionHandler {
 
     private final String sFileSchema = "file:///";
-    private final String sFSRoot = "c:/other/";
-    //private final String sFSRoot = "root1/";
+    //private final String sFSRoot = "c:/other/";
+    private final String sFSRoot = "root1/";
     private final String sLocalCodePrefix = "code_";
     private final String sLocalExpePrefix = "expe_";
     private final String sLocalOutputPrefix = "expeout_";

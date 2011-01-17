@@ -253,7 +253,7 @@ public class StartMidlet extends MIDlet implements CommandListener {
             ListInicio.append("Consignataria", null);
             ListInicio.append("Verificar", null);
             ListInicio.append("FS Roots", null);
-            ListInicio.append("[+] INFO: ", null);
+            //ListInicio.append("[+] INFO: ", null);
             ListInicio.addCommand(getExitCommand());
             ListInicio.setCommandListener(this);
             ListInicio.setSelectedFlags(new boolean[] { false, false, false, false, false, false, false });//GEN-END:|14-getter|1|14-postInit
@@ -392,11 +392,21 @@ public class StartMidlet extends MIDlet implements CommandListener {
             ListExpendio.addCommand(getBackCommand());
             ListExpendio.setCommandListener(this);//GEN-END:|54-getter|1|54-postInit
             // write post-init user code here
-            enumeration = RutaExpendio.VectorPuntos.elements();
-            while (enumeration.hasMoreElements()) {
-                a_PuntoExpendio = (PuntoExpendio) enumeration.nextElement();
-                String sItem = "[!] "+a_PuntoExpendio.GetId()+": "+a_PuntoExpendio.GetNombre();
-                ListExpendio.append(sItem, null);
+            try {
+                enumeration = RutaExpendio.VectorPuntos.elements();
+                while (enumeration.hasMoreElements()) {
+                    a_PuntoExpendio = (PuntoExpendio) enumeration.nextElement();
+                    String sItem = "[!] " + a_PuntoExpendio.GetId() + ": " + a_PuntoExpendio.GetNombre();
+                    //ListExpendio.append(sItem, null);
+                    Image image = Image.createImage("pendiente.png");
+                    ListExpendio.append(sItem, image);
+                }
+            } catch (IOException ioex) {
+                SetMessages(ioex.toString());
+                ioex.printStackTrace();
+            } catch (Exception ex) {
+                SetMessages(ex.toString());
+                ex.printStackTrace();
             }
         }//GEN-BEGIN:|54-getter|2|
         return ListExpendio;
