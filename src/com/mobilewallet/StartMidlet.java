@@ -44,6 +44,7 @@ public class StartMidlet extends MIDlet implements CommandListener {
     private Command exitCommand;
     private Command backCommand;
     private Command sendCommand;
+    private Command calcCommand;
     //</editor-fold>//GEN-END:|fields|0|
 
     /**
@@ -126,6 +127,17 @@ public class StartMidlet extends MIDlet implements CommandListener {
             if (command == backCommand) {//GEN-END:|7-commandAction|1|95-preAction
                 // write pre-action user code here
                 switchDisplayable(null, getListExpendio());//GEN-LINE:|7-commandAction|2|95-postAction
+                // write post-action user code here
+            } else if (command == calcCommand) {//GEN-LINE:|7-commandAction|3|110-preAction
+                // write pre-action user code here
+                //int iEntrDev = Integer.parseInt(getTextFieldPEEntrDev().getString());
+                int iEntrDev = Integer.parseInt(textFieldPEEntrDev.getString());
+                //int iValorUnitario = Integer.parseInt(getStringItemPEValorUnitario().getText());
+                int iValorUnitario = Integer.parseInt(stringItemPEValorUnitario.getText());
+                int iValorTotal = iEntrDev * iValorUnitario;
+                //getTextFieldPEValorTotal().setString(Integer.toString(iValorTotal));
+                textFieldPEValorTotal.setString(Integer.toString(iValorTotal));
+//GEN-LINE:|7-commandAction|4|110-postAction
                 // write post-action user code here
             } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|3|94-preAction
                 // write pre-action user code here
@@ -252,7 +264,7 @@ public class StartMidlet extends MIDlet implements CommandListener {
             ListInicio.append("Expendio", null);
             ListInicio.append("Consignataria", null);
             ListInicio.append("Verificar", null);
-            ListInicio.append("FS Roots", null);
+            //ListInicio.append("FS Roots", null);
             //ListInicio.append("[+] INFO: ", null);
             ListInicio.addCommand(getExitCommand());
             ListInicio.setCommandListener(this);
@@ -374,6 +386,21 @@ public class StartMidlet extends MIDlet implements CommandListener {
         return sendCommand;
     }
     //</editor-fold>//GEN-END:|107-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: calcCommand ">//GEN-BEGIN:|109-getter|0|109-preInit
+    /**
+     * Returns an initiliazed instance of calcCommand component.
+     * @return the initialized component instance
+     */
+    public Command getCalcCommand() {
+        if (calcCommand == null) {//GEN-END:|109-getter|0|109-preInit
+            // write pre-init user code here
+            calcCommand = new Command("Calcular", Command.SCREEN, 0);//GEN-LINE:|109-getter|1|109-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|109-getter|2|
+        return calcCommand;
+    }
+    //</editor-fold>//GEN-END:|109-getter|2|
 
 
 
@@ -605,6 +632,7 @@ public class StartMidlet extends MIDlet implements CommandListener {
             FormPuntoExpendio.addCommand(getExitCommand());
             FormPuntoExpendio.addCommand(getBackCommand());
             FormPuntoExpendio.addCommand(getSendCommand());
+            FormPuntoExpendio.addCommand(getCalcCommand());
             FormPuntoExpendio.setCommandListener(this);//GEN-END:|93-getter|1|93-postInit
             // write post-init user code here
             //getStringItemPEId().setText(Integer.toString(CurrPuntoExpendio.GetId()));

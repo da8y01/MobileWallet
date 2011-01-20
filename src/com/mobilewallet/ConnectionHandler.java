@@ -27,6 +27,7 @@ public class ConnectionHandler {
 
     private final String sFileSchema = "file:///";
     //private final String sFSRoot = "c:/other/";
+    //private final String sFSRoot = "SDCard/";
     private final String sFSRoot = "root1/";
     private final String sLocalCodePrefix = "code_";
     private final String sLocalExpePrefix = "expe_";
